@@ -1,0 +1,9 @@
+packages:
+  - apps/*
+  - packages/*
+  - infra/*
+
+onlyBuiltDependencies:
+  - '@sentry-internal/node-cpu-profiler'
+  - '@sentry/cli'
+  - '@swc/core'

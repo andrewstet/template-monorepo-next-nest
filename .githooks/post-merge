@@ -1,0 +1,25 @@
+#!/usr/bin/env sh
+
+echo "🪝 Running post-merge hook"
+
+if [ ! -f "apps/api/prisma/schema.prisma" ]; then
+  exit 0
+fi
+
+if ! command -v pnpm >/dev/null 2>&1; then
+  exit 0
+fi
+
+if ! pg_isready -h localhost -p 5432 -U db_user >/dev/null 2>&1; then
+  echo "   database not running, skipping migrations"
+
+  exit 0
+fi
+
+if ! pnpm --filter api prisma migrate dev; then
+  echo "⚠ post-merge: Prisma migrate dev failed"
+  echo "   Please check your DB/schema and re-run:"
+  echo "     pnpm --filter api prisma migrate dev"
+fi
+
+exit 0

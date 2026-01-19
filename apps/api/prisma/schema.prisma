@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+
+  // Safe to ignore missing url field error, that's outdated
+}
+
+model User {
+  id           String   @id @default(uuid())
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  email        String   @unique
+  passwordHash String
+
+  items        ExampleItem[]
+}
+
+model ExampleItem {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  userId    String
+  name      String
+
+  user      User     @relation(fields: [userId], references: [id])
+
+  @@index([userId])
+}
