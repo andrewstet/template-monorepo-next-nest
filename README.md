@@ -81,6 +81,7 @@ Opinionated full-stack starter, intended to be used as a GitHub template repo.
 - Init the DB:
   ```shell
   pnpm db:up
+  pnpm db:generate
   pnpm db:migrate
   pnpm db:seed
   ```
