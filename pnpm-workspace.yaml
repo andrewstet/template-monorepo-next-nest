@@ -4,6 +4,12 @@ packages:
   - infra/*
 
 onlyBuiltDependencies:
+  - '@nestjs/core'
+  - '@prisma/engines'
   - '@sentry-internal/node-cpu-profiler'
   - '@sentry/cli'
   - '@swc/core'
+  - esbuild
+  - prisma
+  - sharp
+  - unrs-resolver
