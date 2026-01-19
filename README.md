@@ -71,6 +71,7 @@ Opinionated full-stack starter, intended to be used as a GitHub template repo.
 
   ```shell
   pnpm install
+  pnpm approve-builds # Approve everything
   pnpm dev:setup
 
   # If you'll be running E2E tests (installs browsers, etc.):
