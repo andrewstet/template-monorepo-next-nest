@@ -73,6 +73,8 @@ jobs:
 
       - name: Install deps
         run: pnpm install --frozen-lockfile --prefer-offline
+        env:
+          DATABASE_URL: postgresql://db_user:db_password@localhost:5432/project?schema=public
 
       - name: Cache Playwright browsers
         uses: actions/cache@v4
