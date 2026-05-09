@@ -17,7 +17,7 @@ Opinionated full-stack starter, intended to be used as a GitHub template repo.
 - [TanStack Query _(React Query)_](https://tanstack.com/query/latest/docs/framework/react/installation) for server state
 - [react-hook-form](https://react-hook-form.com/get-started) and [zod](https://zod.dev/#installation) for forms/validation
 - Testing:
-  - [Jest](https://jestjs.io/docs/getting-started) and [React Testing Library _(RTL)_](https://testing-library.com/docs/react-testing-library/intro/#with-typescript)
+  - [Vitest](https://vitest.dev/) and [React Testing Library _(RTL)_](https://testing-library.com/docs/react-testing-library/intro/#with-typescript)
   - [Playwright](https://playwright.dev/docs/intro) for end-to-end _(E2E)_
 
 ### Backend
@@ -30,8 +30,8 @@ Opinionated full-stack starter, intended to be used as a GitHub template repo.
 - [JWT](https://www.jwt.io/introduction#what-is-json-web-token) stored in HTTP-only cookies for auth
 - [pino](https://github.com/pinojs/pino?tab=readme-ov-file#install) for logging
 - Testing:
-  - [Jest](https://jestjs.io/docs/getting-started) for unit tests
-  - [Supertest](https://github.com/forwardemail/supertest?tab=readme-ov-file#getting-started) and [Jest](https://jestjs.io/docs/getting-started) for API/integration tests
+  - [Vitest](https://vitest.dev/) for unit tests
+  - [Supertest](https://github.com/forwardemail/supertest?tab=readme-ov-file#getting-started) and [Vitest](https://vitest.dev/) for API/integration tests
 
 ### Deployment / Infra
 
