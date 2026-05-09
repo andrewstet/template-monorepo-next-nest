@@ -1,10 +1,5 @@
 #!/usr/bin/env sh
 
-echo "🪝 Running pre-push hook"
+echo "Running pre-push local CI (lint, typecheck, tests, build)"
 
-pnpm -r run typecheck
-
-# TODO:
-#  - pnpm lint: Lint the full workspace (not lint-staged, full lint)
-#  - pnpm test -r: Run unit/integration tests
-#  - pnpm build -r: Build the app
+pnpm ci:local

@@ -149,6 +149,29 @@ Opinionated full-stack starter, intended to be used as a GitHub template repo.
     pnpm e2e # Playwright
     ```
 
+### CI parity
+
+- Fast local checks:
+
+  ```shell
+  pnpm ci:quick # lint, typecheck, unit/integration tests
+  ```
+
+- Local CI before pushing:
+
+  ```shell
+  pnpm ci:local # ci:quick plus API and web builds
+  ```
+
+- Full CI including Playwright:
+
+  ```shell
+  pnpm ci:full
+  ```
+
+- The pre-push hook runs `pnpm ci:local` so most GitHub CI failures are caught locally without making every push wait for Playwright.
+- GitHub Actions runs on pull requests to `main`, pushes to any branch, and manual `workflow_dispatch` runs. For solo development, push a feature branch or run the workflow manually to get CI without opening a self-PR.
+
 ### Debug
 
 - DB:

@@ -1,10 +1,11 @@
 name: CI
 
 on:
+  workflow_dispatch:
   pull_request:
     branches: [main]
   push:
-    branches: [main]
+    branches: ["**"]
 
 concurrency:
   group: ci-${{ github.workflow }}-${{ github.ref }}
@@ -38,21 +39,11 @@ jobs:
       - name: Production dependency audit
         run: pnpm audit:prod
 
-      - name: Lint
-        run: pnpm lint
-
-      - name: Typecheck
-        run: pnpm typecheck
-        env:
-          DATABASE_URL: postgresql://db_user:db_password@localhost:5432/project?schema=public
-
-      - name: Tests
+      - name: Run local CI
+        run: pnpm ci:local
         env:
           CI: "true"
-        run: pnpm test
-
-      - name: Build
-        run: pnpm build
+          DATABASE_URL: postgresql://db_user:db_password@localhost:5432/project?schema=public
 
   e2e:
     runs-on: ubuntu-latest
