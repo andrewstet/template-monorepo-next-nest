@@ -35,6 +35,9 @@ jobs:
         env:
           DATABASE_URL: postgresql://db_user:db_password@localhost:5432/project?schema=public
 
+      - name: Production dependency audit
+        run: pnpm audit:prod
+
       - name: Lint
         run: pnpm lint
 
