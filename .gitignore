@@ -39,6 +39,9 @@ playwright-report
 test-results
 .nyc_output
 
+# Generated docs
+docs/api/openapi.json
+
 # Environment variable files
 .env
 .env*

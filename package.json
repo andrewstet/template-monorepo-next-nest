@@ -32,6 +32,8 @@
     "dev:setup": "pnpm dev:setup:git",
     "dev:setup:e2e": "pnpm exec playwright install",
     "dev:setup:git": "git config core.hooksPath .githooks && chmod +x .githooks/*",
+    "docs:check": "prettier --check \"docs/**/*.md\" && pnpm docs:openapi",
+    "docs:openapi": "pnpm --filter api docs:openapi",
     "e2e": "playwright test",
     "e2e:ui": "playwright test --ui",
     "format": "pnpm format:prettier && pnpm format:prisma",

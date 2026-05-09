@@ -103,6 +103,20 @@ Opinionated full-stack starter, intended to be used as a GitHub template repo.
 
   - Open browser to http://localhost:3000
 
+### Docs
+
+- With the API running, open Swagger UI at http://localhost:3001/docs
+- Raw OpenAPI JSON is served at http://localhost:3001/openapi.json
+- Generate the ignored local OpenAPI artifact with:
+  ```shell
+  pnpm docs:openapi
+  ```
+- Check docs formatting and OpenAPI generation with:
+  ```shell
+  pnpm docs:check
+  ```
+- Architecture notes and the Mermaid workspace diagram live in `docs/architecture.md`
+
 ### Stop
 
 1. End processes in both terminals (`Ctrl+C`)
