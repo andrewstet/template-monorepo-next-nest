@@ -3,12 +3,14 @@ import { dirname, resolve } from "node:path";
 
 import { NestFactory } from "@nestjs/core";
 
-import { AppModule } from "./app.module";
 import { createOpenApiDocument } from "./openapi";
 
 const DEFAULT_OUTPUT_PATH = "../../docs/api/openapi.json";
 
 async function generateOpenApi(): Promise<void> {
+  process.env.TYPEORM_MANUAL_INITIALIZATION ??= "true";
+
+  const { AppModule } = await import("./app.module.js");
   const outputPath = resolve(process.cwd(), process.argv[2] ?? DEFAULT_OUTPUT_PATH);
   const app = await NestFactory.create(AppModule, { logger: false });
 

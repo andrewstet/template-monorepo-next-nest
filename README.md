@@ -24,7 +24,7 @@ Opinionated full-stack starter, intended to be used as a GitHub template repo.
 
 - [NestJS](https://docs.nestjs.com/#installation)
   - [@nestjs/schedule](https://docs.nestjs.com/techniques/task-scheduling) _(built-in to Nest)_ for cron-like job scheduling
-- [Prisma ORM](https://www.prisma.io/docs/guides/nextjs)
+- [TypeORM](https://typeorm.io/) with [@nestjs/typeorm](https://docs.nestjs.com/techniques/database)
 - [PostgreSQL](https://www.postgresql.org/download/)
 - [REST API](https://restfulapi.net/)
 - [JWT](https://www.jwt.io/introduction#what-is-json-web-token) stored in HTTP-only cookies for auth
@@ -81,7 +81,6 @@ Opinionated full-stack starter, intended to be used as a GitHub template repo.
 - Init the DB:
   ```shell
   pnpm db:up
-  pnpm db:generate
   pnpm db:migrate
   pnpm db:seed
   ```
@@ -116,6 +115,7 @@ Opinionated full-stack starter, intended to be used as a GitHub template repo.
   pnpm docs:check
   ```
 - Architecture notes and the Mermaid workspace diagram live in `docs/architecture.md`
+- Database conventions and TypeORM command notes live in `docs/database.md`
 
 ### Stop
 
@@ -177,8 +177,9 @@ Opinionated full-stack starter, intended to be used as a GitHub template repo.
 - DB:
 
   ```shell
-  pnpm db:studio # Open a Prisma UI in the browser to validate models, relations, and data
-  pnpm db:logs # Tail DB logs
+  pnpm db:migrate # Run pending TypeORM migrations
+  pnpm db:migration:revert # Revert the latest TypeORM migration
+  pnpm db:logs # Tail Postgres logs
   pnpm db:reset # Reset DB (drop, migrate, reseed)
   ```
 

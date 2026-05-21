@@ -7,7 +7,6 @@
   "private": true,
   "pnpm": {
     "overrides": {
-      "@prisma/dev>@hono/node-server": "1.19.13",
       "next>postcss": "8.5.10",
       "terser-webpack-plugin>serialize-javascript": "7.0.5"
     }
@@ -35,9 +34,11 @@
     "db:down": "docker compose -f infra/docker/docker-compose.yml down",
     "db:logs": "docker compose -f infra/docker/docker-compose.yml logs -f db",
     "db:seed": "pnpm --filter api db:seed",
-    "db:generate": "pnpm --filter api db:generate",
     "db:migrate": "pnpm --filter api db:migrate",
-    "db:studio": "pnpm --filter api db:studio",
+    "db:migration:create": "pnpm --filter api db:migration:create",
+    "db:migration:generate": "pnpm --filter api db:migration:generate",
+    "db:migration:run": "pnpm --filter api db:migration:run",
+    "db:migration:revert": "pnpm --filter api db:migration:revert",
     "db:reset": "pnpm --filter api db:reset",
     "dev:web": "pnpm --filter web dev",
     "dev:api": "pnpm --filter api start:dev",
@@ -48,13 +49,11 @@
     "docs:openapi": "pnpm --filter api docs:openapi",
     "e2e": "playwright test",
     "e2e:ui": "playwright test --ui",
-    "format": "pnpm format:prettier && pnpm format:prisma",
+    "format": "pnpm format:prettier",
     "format:prettier": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,css,scss,html}\"",
-    "format:prisma": "pnpm --filter api format:prisma",
     "lint": "pnpm lint:web && pnpm lint:api",
     "lint:web": "pnpm --filter web lint",
     "lint:api": "pnpm --filter api lint",
-    "postinstall": "pnpm db:generate",
     "test": "pnpm test:api && pnpm test:web",
     "test:api": "pnpm --filter api test",
     "test:web": "pnpm --filter web test",

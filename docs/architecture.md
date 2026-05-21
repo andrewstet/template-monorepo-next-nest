@@ -6,9 +6,8 @@ This template is a pnpm workspace with a Next web app, a Nest API, shared packag
 flowchart LR
   Browser["Browser"] --> Web["apps/web<br/>Next.js"]
   Web --> Api["apps/api<br/>NestJS REST API"]
-  Api --> Db["PostgreSQL<br/>Docker or hosted"]
-  Api --> Prisma["Prisma Client"]
-  Prisma --> Db
+  Api --> Orm["TypeORM<br/>DataSource + repositories"]
+  Orm --> Db["PostgreSQL<br/>Docker or hosted"]
   Web --> Core["packages/core<br/>shared TypeScript"]
   Api --> Core
   Api --> Sentry["Sentry"]
@@ -18,9 +17,10 @@ flowchart LR
 ## Runtime Shape
 
 - `apps/web` owns the browser-facing Next.js application.
-- `apps/api` owns the Nest REST API, Prisma integration, OpenAPI generation, logging, and API observability.
+- `apps/api` owns the Nest REST API, TypeORM integration, OpenAPI generation, logging, and API observability.
 - `packages/core` is reserved for framework-neutral TypeScript shared by apps.
 - `infra/docker` contains local development infrastructure.
+- `apps/api/src/database` contains the TypeORM data source, entities, migrations, and seed scripts.
 
 ## Documentation Flow
 

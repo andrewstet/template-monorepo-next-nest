@@ -1,3 +1,6 @@
+import "reflect-metadata";
+import "dotenv/config";
+
 import { Logger } from "nestjs-pino";
 import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module";

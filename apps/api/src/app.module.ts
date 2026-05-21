@@ -5,9 +5,11 @@ import { LoggerModule } from "nestjs-pino";
 
 import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
+import { DatabaseModule } from "./database/database.module";
 
 @Module({
   imports: [
+    DatabaseModule,
     LoggerModule.forRoot({
       pinoHttp: {
         // Quiet request logs for health checks, etc.

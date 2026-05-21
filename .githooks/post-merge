@@ -2,7 +2,7 @@
 
 echo "🪝 Running post-merge hook"
 
-if [ ! -f "apps/api/prisma/schema.prisma" ]; then
+if [ ! -f "apps/api/src/database/data-source.ts" ]; then
   exit 0
 fi
 
@@ -16,10 +16,10 @@ if ! pg_isready -h localhost -p 5432 -U db_user >/dev/null 2>&1; then
   exit 0
 fi
 
-if ! pnpm --filter api prisma migrate dev; then
-  echo "⚠ post-merge: Prisma migrate dev failed"
+if ! pnpm --filter api db:migration:run; then
+  echo "⚠ post-merge: TypeORM migration run failed"
   echo "   Please check your DB/schema and re-run:"
-  echo "     pnpm --filter api prisma migrate dev"
+  echo "     pnpm --filter api db:migration:run"
 fi
 
 exit 0
