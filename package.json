@@ -5,9 +5,15 @@
   "version": "1.0.0",
   "license": "ISC",
   "private": true,
+  "packageManager": "pnpm@10.33.4",
+  "engines": {
+    "node": "24.x",
+    "pnpm": "10.x"
+  },
   "pnpm": {
     "overrides": {
       "next>postcss": "8.5.10",
+      "qs": "6.15.2",
       "terser-webpack-plugin>serialize-javascript": "7.0.5",
       "typescript": "6.0.3"
     }
@@ -15,7 +21,7 @@
   "devDependencies": {
     "@eslint/js": "^9.39.1",
     "@playwright/test": "^1.57.0",
-    "@types/node": "^25.0.9",
+    "@types/node": "^24.12.4",
     "eslint": "^9.39.1",
     "lint-staged": "^16.2.7",
     "prettier": "^3.7.4",

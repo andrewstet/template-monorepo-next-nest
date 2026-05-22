@@ -58,9 +58,16 @@ Opinionated full-stack starter, intended to be used as a GitHub template repo.
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/en/download)
-- [`pnpm` with workspaces](https://pnpm.io/workspaces) (ideal for monorepo)
+- [Node.js 24 LTS](https://nodejs.org/en/download) (`.nvmrc`, `.node-version`, and `engines.node` all target `24.x`)
+- [`pnpm` 10 with workspaces](https://pnpm.io/workspaces) (`packageManager` pins the exact pnpm 10 release)
 - [Docker](https://docs.docker.com/get-started/) (local Postgres runs in Docker)
+
+### Runtime contract
+
+- Node.js `24.x` is the local, CI, and deployment runtime target. Node 20 is no longer a CI or deployment baseline.
+- Use pnpm 10 through Corepack or the pinned `packageManager` field; CI uses the same pnpm 10 release.
+- `@types/node` is pinned to the Node 24 type line in the root, API, and web packages so TypeScript reflects the intended runtime.
+- Vercel supports Node 24 for the Next.js web app. Railway/Railpack should read `engines.node` from the root `package.json` for the API runtime.
 
 ### One-time setup
 
