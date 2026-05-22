@@ -160,7 +160,7 @@ Opinionated full-stack starter, intended to be used as a GitHub template repo.
 - Local CI before pushing:
 
   ```shell
-  pnpm ci:local # ci:quick plus API and web builds
+  pnpm ci:local # ci:quick plus core, API, and web builds
   ```
 
 - Full CI including Playwright:
@@ -195,6 +195,7 @@ Opinionated full-stack starter, intended to be used as a GitHub template repo.
   pnpm typecheck     # Typecheck all
   pnpm typecheck:web # Typecheck just web
   pnpm typecheck:api # Typecheck just api
+  pnpm typecheck:core # Typecheck just core
   ```
 
 - Manual build:
@@ -202,6 +203,7 @@ Opinionated full-stack starter, intended to be used as a GitHub template repo.
   pnpm build     # Build all
   pnpm build:web # Build just web
   pnpm build:api # Build just api
+  pnpm build:core # Build just core
   ```
 
 ### Observability

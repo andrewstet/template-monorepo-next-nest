@@ -8,7 +8,8 @@
   "pnpm": {
     "overrides": {
       "next>postcss": "8.5.10",
-      "terser-webpack-plugin>serialize-javascript": "7.0.5"
+      "terser-webpack-plugin>serialize-javascript": "7.0.5",
+      "typescript": "6.0.3"
     }
   },
   "devDependencies": {
@@ -18,13 +19,15 @@
     "eslint": "^9.39.1",
     "lint-staged": "^16.2.7",
     "prettier": "^3.7.4",
-    "typescript-eslint": "^8.59.2"
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.59.4"
   },
   "scripts": {
     "audit": "pnpm audit --audit-level moderate",
     "audit:prod": "pnpm audit --prod --audit-level moderate",
-    "build": "pnpm build:api && pnpm build:web",
+    "build": "pnpm build:core && pnpm build:api && pnpm build:web",
     "build:api": "pnpm --filter api build",
+    "build:core": "pnpm --filter @package/core build",
     "build:web": "pnpm --filter web build",
     "check": "pnpm lint && pnpm typecheck && pnpm test",
     "ci:quick": "pnpm check",
@@ -57,8 +60,9 @@
     "test": "pnpm test:api && pnpm test:web",
     "test:api": "pnpm --filter api test",
     "test:web": "pnpm --filter web test",
-    "typecheck": "pnpm typecheck:api && pnpm typecheck:web",
+    "typecheck": "pnpm typecheck:core && pnpm typecheck:api && pnpm typecheck:web",
     "typecheck:api": "pnpm --filter api typecheck",
+    "typecheck:core": "pnpm --filter @package/core typecheck",
     "typecheck:web": "pnpm --filter web typecheck"
   },
   "lint-staged": {
